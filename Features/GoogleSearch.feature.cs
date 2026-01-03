@@ -105,7 +105,7 @@ namespace TestProject1.Features
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
-            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/GoogleSearch.feature.ndjson", 3);
+            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/GoogleSearch.feature.ndjson", 4);
         }
         
         [global::NUnit.Framework.TestAttribute()]
@@ -133,6 +133,38 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
 #line 5
   await testRunner.ThenAsync("the page title should contain \"House MD\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [global::NUnit.Framework.TestAttribute()]
+        [global::NUnit.Framework.DescriptionAttribute("Search for a term Dr Cameroon")]
+        [global::NUnit.Framework.CategoryAttribute("Cameroon")]
+        public async global::System.Threading.Tasks.Task SearchForATermDrCameroon()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "Cameroon"};
+            global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
+            string pickleIndex = "1";
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Search for a term Dr Cameroon", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
+            string[] tagsOfRule = ((string[])(null));
+            global::Reqnroll.RuleInfo ruleInfo = null;
+#line 8
+this.ScenarioInitialize(scenarioInfo, ruleInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                await testRunner.SkipScenarioAsync();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 9
+  await testRunner.GivenAsync("I open the Google homepage", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 10
+  await testRunner.ThenAsync("the page title should contain \"Dr Cameroon Alison\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
