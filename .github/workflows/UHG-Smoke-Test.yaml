@@ -6,11 +6,35 @@ on:
       tag:
         description: 'Reqnroll tag to run'
         required: true
-        default: 'Smoke'
+        default: 'smoke'
+        options:
+         - smoke
+         - regression
+
+      browser:
+        description: 'Browser to run tests on'
+        required: true
+        default: 'chrome'
+        options:
+         - chrome
+         - edge
+         - firefox
+
+      environment:
+        description: 'Environment to run tests against'
+        required: true
+        default: 'STAGE'
+        options:
+         - STAGE
+         - PROD
 
 jobs:
   test:
     runs-on: windows-latest
+
+    env:
+     BROWSER: ${{ github.event.inputs.browser }}
+     ENVIRONMENT: ${{ github.event.inputs.environment }}
 
     steps:
     - name: Checkout code
@@ -28,4 +52,4 @@ jobs:
       run: dotnet build --no-restore
 
     - name: Run tests
-      run: dotnet test --no-build --filter Category=${{ github.event.inputs.tag }}
+      run: dotnet test --no-build --filter Category=${{ github.event.inputs.tag }} -p:Browser=${{ github.event.inputs.browser }} -p:Environment=${{ github.event.inputs.environment }}
