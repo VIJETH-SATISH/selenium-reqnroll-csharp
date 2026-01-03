@@ -18,6 +18,11 @@ namespace TestProject1.Hooks
         [BeforeScenario]
         public void BeforeScenario(ScenarioContext context)
         {
+            var options = new ChromeOptions();
+            options.AddArgument("--headless=new");
+            options.AddArgument("--no-sandbox");
+            options.AddArgument("--disable-dev-shm-usage");
+            options.AddArgument("--window-size=1920,1080");
             IWebDriver drive  = new ChromeDriver();
             DriverFactory.SetDriver(drive);
             ReportFactory.CreateScenario(context.ScenarioInfo.Title);

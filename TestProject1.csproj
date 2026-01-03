@@ -35,4 +35,8 @@
     <Folder Include="Features\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include=".github\workflows\UHG-Smoke-Test.yaml" />
+  </ItemGroup>
+
 </Project>
