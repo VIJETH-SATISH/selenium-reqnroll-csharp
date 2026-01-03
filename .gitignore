@@ -1,0 +1,18 @@
+## Build results
+bin/
+obj/
+
+## Visual Studio
+.vs/
+
+## Test artifacts
+TestResults/
+Reports/
+
+## User-specific
+*.user
+*.suo
+
+## OS files
+.DS_Store
+Thumbs.db
