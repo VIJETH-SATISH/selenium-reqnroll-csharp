@@ -38,6 +38,8 @@ jobs:
     env:
      BROWSER: ${{ github.event.inputs.browser }}
      ENVIRONMENT: ${{ github.event.inputs.environment }}
+     SAUCEDEMO_USER_NAME: ${{ secrets.SAUCEDEMO_USER_NAME }}
+     SAUCEDEMO_PASSWORD: ${{ secrets.SAUCEDEMO_PASSWORD }}
 
     steps:
     - name: Checkout code

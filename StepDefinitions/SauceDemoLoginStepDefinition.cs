@@ -32,7 +32,7 @@ namespace TestProject1.StepDefinitions
         public void Iloginwithsecretcredentials()
         {
             string username = Environment.GetEnvironmentVariable("SAUCEDEMO_USER_NAME");
-            string password = Environment.GetEnvironmentVariable("SAUCEDEMO_USER_NAME");
+            string password = Environment.GetEnvironmentVariable("SAUCEDEMO_USER_PWD");
             sauceDemoSecretLoginPageObj.EnterTheUserNameAndPwdToLogin(username, password);
         }
 
