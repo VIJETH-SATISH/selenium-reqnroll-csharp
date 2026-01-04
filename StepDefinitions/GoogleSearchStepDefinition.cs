@@ -23,6 +23,7 @@ namespace TestProject1.StepDefinitions
         public void GivenIOpenGoogleHomepage()
         {
             DriverFactory.GetDriver().Navigate().GoToUrl("https://www.google.com");
+           
         }
 
         [Then("the page title should contain {string}")]

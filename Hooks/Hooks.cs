@@ -18,6 +18,8 @@ namespace TestProject1.Hooks
         [BeforeScenario]
         public void BeforeScenario(ScenarioContext context)
         {
+            string browser = TestContext.Parameters["Browser"] ?? "chrome";
+            //it means is there "Browser" value if so use what ever used in yaml else if null use chrome
             var options = new ChromeOptions();
             options.AddArgument("--headless=new");
             options.AddArgument("--no-sandbox");

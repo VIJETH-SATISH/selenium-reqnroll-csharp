@@ -34,6 +34,7 @@ on:
 jobs:
   test:
     runs-on: windows-latest
+    environment: ${{ github.event.inputs.environment }}
 
     env:
      BROWSER: ${{ github.event.inputs.browser }}
