@@ -33,6 +33,10 @@ namespace TestProject1.StepDefinitions
         {
             string username = Environment.GetEnvironmentVariable("SAUCEDEMO_USER_NAME");
             string password = Environment.GetEnvironmentVariable("SAUCEDEMO_USER_PWD");
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                throw new Exception("SauceDemo credentials are not set in environment variables");
+            }
             sauceDemoSecretLoginPageObj.EnterTheUserNameAndPwdToLogin(username, password);
         }
 
