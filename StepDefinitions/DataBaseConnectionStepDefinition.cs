@@ -19,7 +19,6 @@ namespace TestProject1.StepDefinitions
         {
 
             DataBaseUtil db = new DataBaseUtil(ConfigurationUtil.GetConnectionString("MySqlDb"));
-            ConfigurationUtil.GetValue();
             // SELECT
             System.Data.DataTable users = await db.ExecuteQueryAsync("select * from vijethdb.lisa_cuddy;");
             TestContext.WriteLine("Number of rows retrieved: " + users.Rows.Count);
