@@ -11,7 +11,7 @@
 #region Designer generated code
 #pragma warning disable
 using Reqnroll;
-namespace selenium-reqnroll-csharp.Features
+namespace seleniumreqnrollcsharp.Features
 {
     
     
