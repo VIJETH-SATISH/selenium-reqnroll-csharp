@@ -61,7 +61,8 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: ExtentTestResults
-        path: ${{ github.workspace }}/bin/Debug/net8.0/Reports
+        path: |
+            **/Reports/**
 
     - name: Run tests
       run: dotnet test --no-build --filter Category=${{ github.event.inputs.tag }} -p:Browser=${{ github.event.inputs.browser }} -p:Environment=${{ github.event.inputs.environment }}
