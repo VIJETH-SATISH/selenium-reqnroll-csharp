@@ -33,10 +33,14 @@ namespace TestProject1.Hooks
         [AfterStep]
         public void AfterStep(ScenarioContext context)
         {
+            var scenario = ReportFactory.Scenario();
+            if (scenario == null)
+                return;
+
             if (context.TestError == null)
-                ReportFactory.Scenario.Pass("Step passed");
+                ReportFactory.Scenario().Pass("Step passed");
             else
-                ReportFactory.Scenario.Fail(context.TestError);
+                ReportFactory.Scenario().Fail(context.TestError);
         }
 
         [AfterTestRun]

@@ -10,7 +10,7 @@ namespace TestProject1.ExtentDriverFactory
 {
     public class ReportFactory
     {
-        private static readonly ExtentReports _extent;
+        private static readonly ExtentReports _extentReport;
         private static readonly ThreadLocal<ExtentTest> _scenario = new ThreadLocal<ExtentTest>();
 
 
@@ -29,26 +29,29 @@ namespace TestProject1.ExtentDriverFactory
 
             var htmlReporter = new ExtentSparkReporter(
                 Path.Combine(reportsDir, $"ExtentReport_{timestamp}.html"));
-            
+
 
             //var reportPath = Path.Combine(
             //                        AppContext.BaseDirectory,
             //                        "Reports",
             //                        "ExtentReports.html");
             //var htmlReporter = new ExtentSparkReporter(reportPath);
-            _extent = new ExtentReports();
-            _extent.AttachReporter(htmlReporter);
+            _extentReport = new ExtentReports();
+            _extentReport.AttachReporter(htmlReporter);
             Console.WriteLine("Base Directory is "+AppContext.BaseDirectory);
         }
 
         public static ExtentTest CreateScenario(string scenarioName)
         {
-            _scenario.Value = _extent.CreateTest(scenarioName);
+            _scenario.Value = _extentReport.CreateTest(scenarioName);
             return _scenario.Value;
         }
 
-        public static ExtentTest Scenario => _scenario.Value;
+        public static ExtentTest Scenario()
+        {
+           return _scenario.Value;
+        }
 
-        public static void Flush() => _extent.Flush();
+        public static void Flush() => _extentReport.Flush();
     }
 }
