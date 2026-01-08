@@ -61,7 +61,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: ExtentTestResults
-        path: E:/C-Sharp/LaunchBrowser/LaunchBrowser/TestProject1/bin/Debug/net8.0/Reports/2026/01/06/ExtentReport_20260106_180524.html
+        path: ${{ github.workspace }}/TestProject1/bin/Debug/net8.0/Reports/2026/01/checking/
 
     - name: Run tests
       run: dotnet test --no-build --filter Category=${{ github.event.inputs.tag }} -p:Browser=${{ github.event.inputs.browser }} -p:Environment=${{ github.event.inputs.environment }}
