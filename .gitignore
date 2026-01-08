@@ -6,8 +6,7 @@ obj/
 .vs/
 
 ## Test artifacts
-TestResults/
-Reports/
+
 
 ## User-specific
 *.user
