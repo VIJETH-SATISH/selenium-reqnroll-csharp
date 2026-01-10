@@ -19,7 +19,7 @@ namespace TestProject1.Hooks
         [BeforeScenario]
         public void BeforeScenario(ScenarioContext context)
         {
-            Console.WriteLine("BEFORE SCENARIO!!!");
+            TestContext.WriteLine("Data from lisa_cuddy table:");
             string browser = TestContext.Parameters["Browser"] ?? "chrome";
             //it means is there "Browser" value if so use what ever used in yaml else if null use chrome
             var options = new ChromeOptions();
