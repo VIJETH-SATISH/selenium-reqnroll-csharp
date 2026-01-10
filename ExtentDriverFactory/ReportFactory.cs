@@ -7,6 +7,7 @@ using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 using TestProject1.Utils;
 
+
 namespace TestProject1.ExtentDriverFactory
 {
     public class ReportFactory
@@ -20,7 +21,10 @@ namespace TestProject1.ExtentDriverFactory
         static string day;
         static string timestamp;
         static string reportsPath;
-
+      
+        public static bool IsGitHubActions =>
+         Environment.GetEnvironmentVariable("GITHUB_ACTIONS") == "true";
+        public static bool IsLocal => !IsGitHubActions;
 
         static ReportFactory()
         {
@@ -28,11 +32,20 @@ namespace TestProject1.ExtentDriverFactory
             year = now.ToString("yyyy"); // "2026"
             month = now.ToString("MM");  // "01"
             day = now.ToString("dd");
-            reportsPath = "Reports/" + year + "/" + month + "/" + day + "/" + timestamp;
-            var reportsDir = Path.Combine(AppContext.BaseDirectory, reportsPath);
-            Directory.CreateDirectory(reportsDir);
+            string reportsDir;
 
-            
+            if (ExecutionEnvUtil.IsGitHubActions)
+            {
+                reportsPath = "Reports";
+                reportsDir = Path.Combine(PathUtil.ProjectRoot, reportsPath);
+            }
+            else
+            {
+                // local dev behavior
+                reportsPath = "Reports/" + year + "/" + month + "/" + day + "/" + timestamp;
+                reportsDir = Path.Combine(AppContext.BaseDirectory, reportsPath);             
+            }
+            Directory.CreateDirectory(reportsDir);
             var htmlReporter = new ExtentSparkReporter(
                 Path.Combine(reportsDir, $"ExtentReport_{timestamp}.html"));
             _extentReport = new ExtentReports();
