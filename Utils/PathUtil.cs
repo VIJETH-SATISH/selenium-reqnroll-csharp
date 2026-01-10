@@ -8,7 +8,20 @@ namespace TestProject1.Utils
 {
     public class PathUtil
     {
-       public static string ProjectRoot =>
-       Directory.GetCurrentDirectory();
+       
+        public static string RepoRoot
+        {
+            get
+            {
+                // GitHub Actions
+                var ghWorkspace = Environment.GetEnvironmentVariable("GITHUB_WORKSPACE");
+                if (!string.IsNullOrEmpty(ghWorkspace))
+                    return ghWorkspace;
+
+                // Local fallback
+                return Directory.GetCurrentDirectory();
+            }
+        }
     }
+
 }

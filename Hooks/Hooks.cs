@@ -60,7 +60,7 @@ namespace TestProject1.Hooks
         public static void AfterTestRun()
         {
             ReportFactory.Flush();
-            ReportFactory.GenerateFailedOnlyReport();
+            //ReportFactory.GenerateFailedOnlyReport();
         }
 
         [AfterScenario]

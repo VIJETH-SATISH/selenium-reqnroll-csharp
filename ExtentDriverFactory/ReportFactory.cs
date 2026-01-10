@@ -36,23 +36,28 @@ namespace TestProject1.ExtentDriverFactory
 
             if (ExecutionEnvUtil.IsGitHubActions)
             {
+               
                 reportsPath = "Reports";
-                reportsDir = Path.Combine(PathUtil.ProjectRoot, reportsPath);
+                reportsDir = Path.Combine(PathUtil.RepoRoot, reportsPath);
                 Console.WriteLine("INSIDE GitHub Actions Reports Directory is " + reportsDir);
-                Console.WriteLine("GitHub Actions Base Directory is " + PathUtil.ProjectRoot);
-
+                Console.WriteLine("GitHub Actions Base Directory is " + PathUtil.RepoRoot);
+                var htmlReporter = new ExtentSparkReporter(
+               Path.Combine(reportsDir, $"ExtentReport.html"));
+                _extentReport = new ExtentReports();
+                _extentReport.AttachReporter(htmlReporter);
             }
             else
             {
                 // local dev behavior
                 reportsPath = "Reports/" + year + "/" + month + "/" + day + "/" + timestamp;
-                reportsDir = Path.Combine(AppContext.BaseDirectory, reportsPath);             
+                reportsDir = Path.Combine(AppContext.BaseDirectory, reportsPath);
+                Directory.CreateDirectory(reportsDir);
+                var htmlReporter = new ExtentSparkReporter(
+               Path.Combine(reportsDir, $"ExtentReport_{timestamp}.html"));
+                _extentReport = new ExtentReports();
+                _extentReport.AttachReporter(htmlReporter);
             }
-            Directory.CreateDirectory(reportsDir);
-            var htmlReporter = new ExtentSparkReporter(
-                Path.Combine(reportsDir, $"ExtentReport_{timestamp}.html"));
-            _extentReport = new ExtentReports();
-            _extentReport.AttachReporter(htmlReporter);
+                 
             Console.WriteLine("Base Directory is "+AppContext.BaseDirectory);
         }
 
