@@ -34,6 +34,7 @@ namespace TestProject1.ExtentDriverFactory
             day = now.ToString("dd");
             string reportsDir;
 
+            Console.WriteLine("INSIDE REPORT FACTORY");
             if (ExecutionEnvUtil.IsGitHubActions)
             {
                
