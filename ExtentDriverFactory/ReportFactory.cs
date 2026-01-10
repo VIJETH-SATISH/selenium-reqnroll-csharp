@@ -38,6 +38,9 @@ namespace TestProject1.ExtentDriverFactory
             {
                 reportsPath = "Reports";
                 reportsDir = Path.Combine(PathUtil.ProjectRoot, reportsPath);
+                Console.WriteLine("INSIDE GitHub Actions Reports Directory is " + reportsDir);
+                Console.WriteLine("GitHub Actions Base Directory is " + PathUtil.ProjectRoot);
+
             }
             else
             {
