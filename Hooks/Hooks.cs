@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TestProject1.ExtentDriverFactory;
+using TestProject1.Utils;
 
 
 
@@ -40,8 +41,15 @@ namespace TestProject1.Hooks
             if (context.TestError == null)
                 ReportFactory.Scenario().Pass("Step passed");
             else
-            { 
-                ReportFactory.Scenario().Fail(context.TestError);
+            {
+                
+                var base64 = ScreenShotUtil.CaptureBase64(
+                   DriverFactory.GetDriver());
+              
+                scenario.Fail(context.TestError).
+                    AddScreenCaptureFromBase64String(base64, "Failure Screen shot");
+
+                //ReportFactory.Scenario().Fail(context.TestError);
                 ReportFactory.RecordFailure(
                     context.ScenarioInfo.Title,
                     context.TestError);

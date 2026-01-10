@@ -19,19 +19,20 @@ namespace TestProject1.ExtentDriverFactory
         static string month;
         static string day;
         static string timestamp;
+        static string reportsPath;
 
 
         static ReportFactory()
         {
+            timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
             year = now.ToString("yyyy"); // "2026"
             month = now.ToString("MM");  // "01"
             day = now.ToString("dd");
-
-            var reportsDir = Path.Combine(AppContext.BaseDirectory, "Reports/"+year+"/"+month+"/"+day);
+            reportsPath = "Reports/" + year + "/" + month + "/" + day + "/" + timestamp;
+            var reportsDir = Path.Combine(AppContext.BaseDirectory, reportsPath);
             Directory.CreateDirectory(reportsDir);
 
-            timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
-
+            
             var htmlReporter = new ExtentSparkReporter(
                 Path.Combine(reportsDir, $"ExtentReport_{timestamp}.html"));
             _extentReport = new ExtentReports();
@@ -66,7 +67,7 @@ namespace TestProject1.ExtentDriverFactory
             if (_failedScenarios.Count == 0)
                 return;
 
-            var failedReportsDir = Path.Combine(AppContext.BaseDirectory, "Reports/" + year + "/" + month + "/" + day + "/FailedOnly");
+            var failedReportsDir = Path.Combine(AppContext.BaseDirectory, reportsPath);
             Directory.CreateDirectory(failedReportsDir);
 
             //var timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
