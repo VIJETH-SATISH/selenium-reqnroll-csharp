@@ -40,13 +40,19 @@ namespace TestProject1.Hooks
             if (context.TestError == null)
                 ReportFactory.Scenario().Pass("Step passed");
             else
+            { 
                 ReportFactory.Scenario().Fail(context.TestError);
+                ReportFactory.RecordFailure(
+                    context.ScenarioInfo.Title,
+                    context.TestError);
+            }
         }
 
         [AfterTestRun]
         public static void AfterTestRun()
         {
             ReportFactory.Flush();
+            ReportFactory.GenerateFailedOnlyReport();
         }
 
         [AfterScenario]
