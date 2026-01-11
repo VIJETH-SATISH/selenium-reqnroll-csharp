@@ -29,7 +29,7 @@ namespace TestProject1.Hooks
             options.AddArgument("--no-sandbox");
             options.AddArgument("--disable-dev-shm-usage");
             options.AddArgument("--window-size=1920,1080");
-            IWebDriver drive  = new ChromeDriver();
+            IWebDriver drive  = new ChromeDriver(options);
             DriverFactory.SetDriver(drive);
             ReportFactory.CreateScenario(context.ScenarioInfo.Title);
         }
