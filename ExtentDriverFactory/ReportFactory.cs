@@ -34,14 +34,13 @@ namespace TestProject1.ExtentDriverFactory
             day = now.ToString("dd");
             string reportsDir;
 
-            Console.WriteLine("INSIDE REPORT FACTORY");
             if (ExecutionEnvUtil.IsGitHubActions)
             {
                
-                reportsPath = "Reports";
+                reportsPath = "Reports\reqnrollreport";
+                //string reportsPath2 = "reqnrollreport";
+
                 reportsDir = Path.Combine(PathUtil.RepoRoot, reportsPath);
-                Console.WriteLine("INSIDE GitHub Actions Reports Directory is " + reportsDir);
-                Console.WriteLine("GitHub Actions Base Directory is " + PathUtil.RepoRoot);
                 var htmlReporter = new ExtentSparkReporter(
                Path.Combine(reportsDir, $"ExtentReport.html"));
                 _extentReport = new ExtentReports();

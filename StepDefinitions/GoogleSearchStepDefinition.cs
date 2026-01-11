@@ -29,7 +29,8 @@ namespace TestProject1.StepDefinitions
         [Then("the page title should contain {string}")]
         public void ThenThePageTitleShouldContain(string title)
         {
-            _googlePageObj.EnterTheTextInSearchBox(title);
+            _googlePageObj.EnterTheTextInSearchBox(Environment.GetEnvironmentVariable("GITHUB_WORKSPACE"));
+            Thread.Sleep(6000);
             _googlePageObj.ClickOnSearchButton();
         }
     }
