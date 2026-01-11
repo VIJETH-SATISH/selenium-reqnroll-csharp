@@ -38,11 +38,13 @@ namespace TestProject1.ExtentDriverFactory
             {
 
                 reportsPath = Path.Combine("Reports", "ReqnrollReport");
-                //string reportsPath2 = "reqnrollreport";
-
                 reportsDir = Path.Combine(PathUtil.RepoRoot, reportsPath);
+
+                Directory.CreateDirectory(reportsDir);
+
                 var htmlReporter = new ExtentSparkReporter(
-               Path.Combine(reportsDir, $"ExtentReport.html"));
+                    Path.Combine(reportsDir, "ExtentReport.html"));
+
                 _extentReport = new ExtentReports();
                 _extentReport.AttachReporter(htmlReporter);
             }

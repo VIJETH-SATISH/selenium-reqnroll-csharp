@@ -15,11 +15,11 @@ namespace TestProject1.Utils
             {
                 // GitHub Actions
                 var ghWorkspace = Environment.GetEnvironmentVariable("GITHUB_WORKSPACE");
-                //if (!string.IsNullOrEmpty(ghWorkspace))
+                if (!string.IsNullOrEmpty(ghWorkspace))
                     return ghWorkspace;
 
                 // Local fallback
-                //return Directory.GetCurrentDirectory();
+                return Directory.GetCurrentDirectory();
             }
         }
     }
