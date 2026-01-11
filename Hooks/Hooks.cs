@@ -23,7 +23,7 @@ namespace TestProject1.Hooks
         public void BeforeScenario(ScenarioContext context)
         {
             Console.WriteLine("I am inside Before Scenario hook");
-            string browser = TestContext.Parameters["Browser"] ?? "chrome";
+            //string browser = TestContext.Parameters["Browser"] ?? "chrome";
             //it means is there "Browser" value if so use what ever used in yaml else if null use chrome
             var options = new ChromeOptions();
             options.AddArgument("--headless=new");

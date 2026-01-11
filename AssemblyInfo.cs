@@ -8,6 +8,7 @@ using NUnit.Framework;
 //[assembly: Parallelizable(ParallelScope.Fixtures)]
 //[assembly: LevelOfParallelism(4)]
 
-[assembly: Parallelizable(ParallelScope.None)]
-[assembly: LevelOfParallelism(1)]
+//[assembly: LevelOfParallelism(1)]
+//[assembly: Parallelizable(ParallelScope.None)]
+
 
