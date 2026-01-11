@@ -42,6 +42,10 @@ namespace TestProject1.ExtentDriverFactory
 
                 Directory.CreateDirectory(reportsDir);
 
+                Console.WriteLine("GITHUB_WORKSPACE = " +
+                Environment.GetEnvironmentVariable("GITHUB_WORKSPACE"));
+                Console.WriteLine("ReportsDir = " + reportsDir);
+
                 var htmlReporter = new ExtentSparkReporter(
                     Path.Combine(reportsDir, "ExtentReport.html"));
 
