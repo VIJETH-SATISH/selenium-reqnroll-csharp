@@ -36,8 +36,8 @@ namespace TestProject1.ExtentDriverFactory
 
             if (ExecutionEnvUtil.IsGitHubActions)
             {
-               
-                reportsPath = "Reports\reqnrollreport";
+
+                reportsPath = Path.Combine("Reports", "ReqnrollReport");
                 //string reportsPath2 = "reqnrollreport";
 
                 reportsDir = Path.Combine(PathUtil.RepoRoot, reportsPath);
