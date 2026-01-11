@@ -30,7 +30,6 @@ namespace TestProject1.StepDefinitions
         public void ThenThePageTitleShouldContain(string title)
         {
             _googlePageObj.EnterTheTextInSearchBox(title);
-            Thread.Sleep(6000);
             _googlePageObj.ClickOnSearchButton();
         }
     }
