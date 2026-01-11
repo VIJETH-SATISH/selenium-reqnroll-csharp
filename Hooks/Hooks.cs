@@ -21,7 +21,6 @@ namespace TestProject1.Hooks
         public void BeforeScenario(ScenarioContext context)
         {
             Console.WriteLine("I am inside Before Scenario hook");
-            TestContext.WriteLine("I am inside Before Scenario hook");
             string browser = TestContext.Parameters["Browser"] ?? "chrome";
             //it means is there "Browser" value if so use what ever used in yaml else if null use chrome
             var options = new ChromeOptions();
@@ -62,10 +61,16 @@ namespace TestProject1.Hooks
         [AfterTestRun]
         public static void AfterTestRun()
         {
-            Console.WriteLine("I am inside After Test Run!!");
-            TestContext.WriteLine("I am inside After Test Run!!");
-            ReportFactory.Flush();
-            ReportFactory.GenerateFailedOnlyReport();
+            try
+            {
+                Console.WriteLine("I am inside After Test Run!!");
+                ReportFactory.Flush();
+                ReportFactory.GenerateFailedOnlyReport();
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine("AfterTestRun failed: " + ex);
+            }
         }
 
         [AfterScenario]
