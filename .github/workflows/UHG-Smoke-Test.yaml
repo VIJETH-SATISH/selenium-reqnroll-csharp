@@ -82,4 +82,4 @@ jobs:
         path: ${{ github.workspace }}\Reports\ReqnrollReport
 
     - name: Run tests
-      run: dotnet test --no-build --filter Category=${{ github.event.inputs.tag }} -p:Browser=${{ github.event.inputs.browser }} -p:Environment=${{ github.event.inputs.environment }}
+      run: dotnet test --no-build --verbosity normal --filter Category=${{ github.event.inputs.tag }} -p:Browser=${{ github.event.inputs.browser }} -p:Environment=${{ github.event.inputs.environment }}

@@ -29,6 +29,8 @@ namespace TestProject1.StepDefinitions
         [Then("the page title should contain {string}")]
         public void ThenThePageTitleShouldContain(string title)
         {
+            Console.WriteLine("I am inside Step Definition");
+            TestContext.WriteLine("I am inside Step Definition");
             _googlePageObj.EnterTheTextInSearchBox(title);
             _googlePageObj.ClickOnSearchButton();
         }
