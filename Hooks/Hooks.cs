@@ -17,6 +17,14 @@ namespace TestProject1.Hooks
     [Binding]
     public class Hooks
     {
+
+        [BeforeTestRun]
+        public static void BeforeTestRun()
+        {
+            Console.WriteLine("I am inside BeforeTESTRUN");
+            _ = typeof(ReportFactory);
+        }
+
         [BeforeScenario]
         public void BeforeScenario(ScenarioContext context)
         {
