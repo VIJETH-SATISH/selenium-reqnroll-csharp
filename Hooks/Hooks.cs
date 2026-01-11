@@ -1,12 +1,6 @@
-﻿using Io.Cucumber.Messages.Types;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using Reqnroll;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TestProject1.ExtentDriverFactory;
 using TestProject1.Utils;
 
@@ -19,7 +13,7 @@ namespace TestProject1.Hooks
     {
 
         [BeforeTestRun]
-        public static void BeforeTestRun()
+        public static void BeforTestRun()
         {
             Console.WriteLine("I am inside BeforeTESTRUN");
             _ = typeof(ReportFactory);
