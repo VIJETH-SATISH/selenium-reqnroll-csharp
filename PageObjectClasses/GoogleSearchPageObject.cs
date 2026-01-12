@@ -13,7 +13,7 @@ namespace TestProject1.PageObjectClasses
     public class GoogleSearchPageObject: BasePage.BasePageObject
     {
 
-        private IWebElement SearchBox => driver.FindElement(By.XPath("(//textarea)[1]"));
+        private IWebElement SearchBox => driver.FindElement(By.XPath("(//textareaaa)[1]"));
         private IWebElement SearchButton => driver.FindElement(By.XPath("(//input[@value='Google Search'])[2]"));
 
         public void EnterTheTextInSearchBox(string text)
