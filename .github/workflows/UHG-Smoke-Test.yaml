@@ -73,6 +73,9 @@ jobs:
           Browser: ${{ github.event.inputs.browser }}
           Environment: ${{ github.event.inputs.environment }}
           Tag: ${{ github.event.inputs.tag }}
+    
+    - name: Run tests
+      run: dotnet test --no-build --verbosity normal --filter Category=${{ github.event.inputs.tag }} -p:Browser=${{ github.event.inputs.browser }} -p:Environment=${{ github.event.inputs.environment }}
 
     - name: Publish Test Results
       if: always()
@@ -80,6 +83,3 @@ jobs:
       with:
         name: ExtentTestResults
         path: ${{ github.workspace }}\Reports\ReqnrollReport\
-
-    - name: Run tests
-      run: dotnet test --no-build --verbosity normal --filter Category=${{ github.event.inputs.tag }} -p:Browser=${{ github.event.inputs.browser }} -p:Environment=${{ github.event.inputs.environment }}
