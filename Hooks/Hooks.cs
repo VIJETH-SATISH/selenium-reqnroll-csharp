@@ -68,14 +68,13 @@ namespace TestProject1.Hooks
                 Console.WriteLine("I am inside After Test Run!!");
                 ReportFactory.Flush();
                 Thread.Sleep(5000);
-                ReportFactory.GenerateFailedOnlyReport();
-                Thread.Sleep(9000);
+                ReportFactory.GenerateFailedOnlyReport();            
             }
             catch (System.Exception ex)
             {
                 Console.WriteLine("AfterTestRun failed: " + ex);
             }
-            Thread.Sleep(10000);
+            Thread.Sleep(20000);
         }
 
         [AfterScenario]
