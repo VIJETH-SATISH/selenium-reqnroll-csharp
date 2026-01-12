@@ -142,11 +142,11 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
         
         [global::NUnit.Framework.TestAttribute()]
         [global::NUnit.Framework.DescriptionAttribute("Search for a term Dr Cameroon")]
-        [global::NUnit.Framework.CategoryAttribute("smoke")]
+        [global::NUnit.Framework.CategoryAttribute("smokeCameroon")]
         public async global::System.Threading.Tasks.Task SearchForATermDrCameroon()
         {
             string[] tagsOfScenario = new string[] {
-                    "smoke"};
+                    "smokeCameroon"};
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             string pickleIndex = "1";
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Search for a term Dr Cameroon", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);

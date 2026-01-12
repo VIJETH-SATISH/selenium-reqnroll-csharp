@@ -47,10 +47,11 @@ namespace TestProject1.ExtentDriverFactory
                 Console.WriteLine("ReportsDir = " + reportsDir);
 
                 var htmlReporter = new ExtentSparkReporter(
-                    Path.Combine(reportsDir, $"ExtentReport.html"));
+                    Path.Combine(reportsDir, $"index.html"));
 
                 _extentReport = new ExtentReports();
                 _extentReport.AttachReporter(htmlReporter);
+                //_extentReport.Flush();
             }
             else
             {
